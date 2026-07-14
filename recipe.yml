@@ -1437,7 +1437,7 @@ config:
           unpublish_on: true
           unpublish_state: true
     canvas.content_template.node.event.full:
-      simpleConfigUpdate:
+      setComponentTreeIfComponentsExist:
         component_tree:
           ea11f0a1-4444-4a44-9444-e0e1e2e3f401:
             uuid: ea11f0a1-4444-4a44-9444-e0e1e2e3f401
