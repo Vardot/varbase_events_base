@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Categories'
+vid: event_categories
+description: 'The type of event: an open day, a conference, an information session, and so on.'
+weight: 0
+new_revision: false

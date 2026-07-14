@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+  - canvas.component.sdc.vartheme_bs5.card-text
+  - canvas.component.sdc.vartheme_bs5.date
+  - canvas.component.sdc.vartheme_bs5.heading
+  - core.entity_view_mode.node.text_card_medium
+  - field.field.node.event.field_when
+  - node.type.event
+  module:
+  - node
+  - options
+id: node.event.text_card_medium
+content_entity_type_id: node
+content_entity_type_bundle: event
+content_entity_type_view_mode: text_card_medium
+component_tree:
+  b1c2d3e4-0001-4a01-9a01-000000000001:
+    uuid: b1c2d3e4-0001-4a01-9a01-000000000001
+    component_id: sdc.vartheme_bs5.card-text
+    component_version: e029fefa26d20f4f
+    inputs:
+      card_border: false
+      padded: true
+      box_shadow: shadow-none
+      corner_style: rounded-3
+      equal_height: true
+      stretched_link: true
+      link_url:
+        sourceType: host-entity-url
+        absolute: false
+  b1c2d3e4-0001-4a01-9a01-000000000002:
+    parent_uuid: b1c2d3e4-0001-4a01-9a01-000000000001
+    slot: content
+    uuid: b1c2d3e4-0001-4a01-9a01-000000000002
+    component_id: sdc.vartheme_bs5.date
+    component_version: 3eae6f5d223f6bda
+    inputs:
+      date:
+        sourceType: entity-field
+        expression: ℹ︎␜entity:node:event␝field_when␞0␟value
+        adapter: unix_to_date
+  b1c2d3e4-0001-4a01-9a01-000000000003:
+    parent_uuid: b1c2d3e4-0001-4a01-9a01-000000000001
+    slot: content
+    uuid: b1c2d3e4-0001-4a01-9a01-000000000003
+    component_id: sdc.vartheme_bs5.heading
+    component_version: 0889e2ce906c3164
+    inputs:
+      heading_text:
+        sourceType: entity-field
+        expression: ℹ︎␜entity:node:event␝title␞␟value
+      level: 3
+exposed_slots: {}
