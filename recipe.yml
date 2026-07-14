@@ -94,7 +94,7 @@ config:
                     offset_label: Offset
                   quantity: 9
               exposed_form:
-                type: bef
+                type: components_exposed_form
                 options:
                   submit_button: Apply Filter
                   reset_button: true
@@ -130,7 +130,7 @@ config:
                           collapsible_disable_automatic_open: false
                           is_secondary: false
                           hide_label: true
-                      field_tags_target_id:
+                      field_event_categories_target_id:
                         plugin_id: default
                         advanced:
                           sort_options: false
@@ -147,23 +147,7 @@ config:
                         select_all_none: false
                         select_all_none_nested: false
                         display_inline: false
-                      field_blog_categories_target_id:
-                        plugin_id: default
-                        advanced:
-                          sort_options: false
-                          rewrite:
-                            filter_rewrite_values: ''
-                            filter_rewrite_values_key: false
-                          collapsible: false
-                          collapsible_disable_automatic_open: false
-                          is_secondary: false
-                          hide_label: false
-                        options_show_only_used: true
-                        options_show_only_used_filtered: false
-                        options_hide_when_empty: true
-                        select_all_none: false
-                        select_all_none_nested: false
-                        display_inline: false
+                  component_id: vartheme_bs5:views-exposed-filters
               access:
                 type: perm
                 options:
@@ -319,7 +303,7 @@ config:
                     operator: field_event_categories_target_id_op
                     operator_limit_selection: false
                     operator_list: {}
-                    identifier: type
+                    identifier: event_categories
                     required: false
                     remember: false
                     multiple: false
@@ -340,51 +324,6 @@ config:
                     group_items: {}
                   reduce_duplicates: false
                   vid: event_categories
-                  type: select
-                  hierarchy: false
-                  limit: true
-                  error_message: true
-                field_tags_target_id:
-                  id: field_tags_target_id
-                  table: node__field_tags
-                  field: field_tags_target_id
-                  relationship: none
-                  group_type: group
-                  admin_label: ''
-                  plugin_id: taxonomy_index_tid
-                  operator: or
-                  value: {}
-                  group: 1
-                  exposed: true
-                  expose:
-                    operator_id: field_tags_target_id_op
-                    label: Industry
-                    description: ''
-                    use_operator: false
-                    operator: field_tags_target_id_op
-                    operator_limit_selection: false
-                    operator_list: {}
-                    identifier: industry
-                    required: false
-                    remember: false
-                    multiple: false
-                    remember_roles:
-                      authenticated: authenticated
-                    reduce: false
-                  is_grouped: false
-                  group_info:
-                    label: ''
-                    description: ''
-                    identifier: ''
-                    optional: true
-                    widget: select
-                    multiple: false
-                    remember: false
-                    default_group: All
-                    default_group_multiple: {}
-                    group_items: {}
-                  reduce_duplicates: false
-                  vid: tags
                   type: select
                   hierarchy: false
                   limit: true
@@ -587,7 +526,7 @@ config:
                     offset_label: Offset
                   quantity: 9
               exposed_form:
-                type: bef
+                type: components_exposed_form
                 options:
                   submit_button: Apply Filter
                   reset_button: true
@@ -623,7 +562,7 @@ config:
                           collapsible_disable_automatic_open: false
                           is_secondary: false
                           hide_label: true
-                      field_tags_target_id:
+                      field_event_categories_target_id:
                         plugin_id: default
                         advanced:
                           sort_options: false
@@ -640,23 +579,7 @@ config:
                         select_all_none: false
                         select_all_none_nested: false
                         display_inline: false
-                      field_blog_categories_target_id:
-                        plugin_id: default
-                        advanced:
-                          sort_options: false
-                          rewrite:
-                            filter_rewrite_values: ''
-                            filter_rewrite_values_key: false
-                          collapsible: false
-                          collapsible_disable_automatic_open: false
-                          is_secondary: false
-                          hide_label: false
-                        options_show_only_used: true
-                        options_show_only_used_filtered: false
-                        options_hide_when_empty: true
-                        select_all_none: false
-                        select_all_none_nested: false
-                        display_inline: false
+                  component_id: vartheme_bs5:views-exposed-filters
               filters:
                 status:
                   id: status
@@ -788,7 +711,7 @@ config:
                     operator: field_event_categories_target_id_op
                     operator_limit_selection: false
                     operator_list: {}
-                    identifier: type
+                    identifier: event_categories
                     required: false
                     remember: false
                     multiple: false
@@ -809,51 +732,6 @@ config:
                     group_items: {}
                   reduce_duplicates: false
                   vid: event_categories
-                  type: select
-                  hierarchy: false
-                  limit: true
-                  error_message: true
-                field_tags_target_id:
-                  id: field_tags_target_id
-                  table: node__field_tags
-                  field: field_tags_target_id
-                  relationship: none
-                  group_type: group
-                  admin_label: ''
-                  plugin_id: taxonomy_index_tid
-                  operator: or
-                  value: {}
-                  group: 1
-                  exposed: true
-                  expose:
-                    operator_id: field_tags_target_id_op
-                    label: Industry
-                    description: ''
-                    use_operator: false
-                    operator: field_tags_target_id_op
-                    operator_limit_selection: false
-                    operator_list: {}
-                    identifier: industry
-                    required: false
-                    remember: false
-                    multiple: false
-                    remember_roles:
-                      authenticated: authenticated
-                    reduce: false
-                  is_grouped: false
-                  group_info:
-                    label: ''
-                    description: ''
-                    identifier: ''
-                    optional: true
-                    widget: select
-                    multiple: false
-                    remember: false
-                    default_group: All
-                    default_group_multiple: {}
-                    group_items: {}
-                  reduce_duplicates: false
-                  vid: tags
                   type: select
                   hierarchy: false
                   limit: true
