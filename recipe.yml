@@ -1511,3 +1511,91 @@ config:
               views_label: ''
               items_per_page: 2
               exposed: {}
+    user.role.content_editor:
+      grantPermissions:
+      - create event content
+      - create terms in event_categories
+      - delete any event content
+      - delete event revisions
+      - delete own event content
+      - edit any event content
+      - edit own event content
+      - reorder terms in event_categories
+      - revert event revisions
+      - select terms in event_categories
+      - select unpublished terms in event_categories
+      - view event revisions
+      - view term names in event_categories
+      - view terms in event_categories
+      - view unpublished term names in event_categories
+      - view unpublished terms in event_categories
+      - view vocabulary name of event_categories
+    user.role.content_admin:
+      grantPermissions:
+      - create event content
+      - create terms in event_categories
+      - delete any event content
+      - delete event revisions
+      - delete own event content
+      - delete terms in event_categories
+      - edit any event content
+      - edit own event content
+      - edit terms in event_categories
+      - reorder terms in event_categories
+      - revert event revisions
+      - select terms in event_categories
+      - select unpublished terms in event_categories
+      - view event revisions
+      - view term names in event_categories
+      - view terms in event_categories
+      - view unpublished term names in event_categories
+      - view unpublished terms in event_categories
+      - view vocabulary name of event_categories
+      - access_unpublished node event
+      - access_unpublished taxonomy_term event_categories
+      - access_unpublished taxonomy_term tags
+    user.role.seo_admin:
+      grantPermissions:
+      - create event content
+      - create terms in event_categories
+      - delete any event content
+      - delete own event content
+      - edit any event content
+      - edit own event content
+      - reorder terms in event_categories
+      - select terms in event_categories
+      - select unpublished terms in event_categories
+      - view event revisions
+      - view term names in event_categories
+      - view terms in event_categories
+      - view unpublished term names in event_categories
+      - view unpublished terms in event_categories
+      - view vocabulary name of event_categories
+    user.role.site_admin:
+      grantPermissions:
+      - create event content
+      - create terms in event_categories
+      - delete any event content
+      - delete event revisions
+      - delete own event content
+      - delete terms in event_categories
+      - edit any event content
+      - edit own event content
+      - edit terms in event_categories
+      - reorder terms in event_categories
+      - reset event_categories
+      - revert event revisions
+      - select terms in event_categories
+      - select unpublished terms in event_categories
+      - taxonomy manager export csv for event_categories
+      - taxonomy manager export list for event_categories
+      - view event revisions
+      - view term names in event_categories
+      - view terms in event_categories
+      - view unpublished term names in event_categories
+      - view unpublished terms in event_categories
+      - view vocabulary name of event_categories
+      - administer webshare
+      - access_unpublished node event
+      - access_unpublished taxonomy_term event_categories
+      - access_unpublished taxonomy_term tags
