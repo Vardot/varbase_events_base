@@ -8,6 +8,7 @@ recipes:
 - varbase_workflow_base
 - events
 install:
+- varbase_components
 - selective_better_exposed_filters
 - webshare
 config:

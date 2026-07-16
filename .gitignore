@@ -1,0 +1,18 @@
+# Node tooling + webship-js install (installed on demand, not committed).
+/node_modules/
+/package-lock.json
+/yarn.lock
+/.yarn/
+/.yarnrc.yml
+/.pnp.*
+
+# webship-js / Playwright run artifacts.
+/tests/reports/
+/tests/screenshots/
+/tests/videos/
+
+# CI-assembled test site + caches.
+/.site/
+/.cache/
+/events-base-db.sql*
+/.gitlab-ci-local/
