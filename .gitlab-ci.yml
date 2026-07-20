@@ -138,19 +138,12 @@ validate:yaml-lint:
     - composer config allow-plugins true -n
     - composer config minimum-stability dev
     - composer config repositories.events_base path "$CI_PROJECT_DIR"
-    # TEMPORARY: the events listing view uses the components_exposed_form views
-    # exposed-form plugin, which is added by Varbase Components MR !46
-    # (https://git.drupalcode.org/project/varbase_components/-/merge_requests/46,
-    # issue #3611182) but is not yet in 4.0.x. Pull varbase_components from the
-    # issue-fork branch until that MR merges, then delete these two lines and let
-    # it resolve from 4.0.x-dev again.
-    - composer config repositories.varbase_components_fork vcs https://git.drupalcode.org/issue/varbase_components-3611182.git
     # Retry the require/install — git.drupalcode.org clones intermittently reset
     # (RPC failed / stream not closed) on a runner, and a single hiccup should
     # not fail the build.
     - |
       for i in 1 2 3 4 5; do
-        composer require "drupal/varbase_components:dev-3611182-components-exposed-form as 4.0.x-dev" "drupal/varbase_events_base:@dev" drush/drush:^13 -W --no-interaction && break
+        composer require "drupal/varbase_events_base:@dev" drush/drush:^13 -W --no-interaction && break
         echo "composer require attempt $i failed — retrying in 15s"; sleep 15
       done
     - |
