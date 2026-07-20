@@ -11,6 +11,7 @@ install:
 - varbase_components
 - selective_better_exposed_filters
 - webshare
+- smart_date
 config:
   strict: false
   actions:
