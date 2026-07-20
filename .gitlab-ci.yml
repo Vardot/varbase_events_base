@@ -104,15 +104,6 @@ validate:yaml-lint:
     - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
     - curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
     - apt-get install -y nodejs
-    # Bootstrap mglaman/composer-drupal-lenient GLOBALLY so its solver hook is
-    # active during the lock-less solve below. varbase_project already declares
-    # the plugin and its extra.drupal-lenient allow-list, but a locally-required
-    # plugin is only installed AFTER solving, so without the global copy the
-    # solver rejects drupal/ckeditor_media_resize (it declares core ~11.2/~11.3
-    # only, upstream #3607786) against Drupal core 11.4 and the whole
-    # varbase_starter -> varbase_editor_base chain fails to resolve.
-    - composer global config --no-plugins allow-plugins.mglaman/composer-drupal-lenient true
-    - composer global require mglaman/composer-drupal-lenient --no-interaction --no-progress
     # Assemble a Varbase project and require the recipe under test from a path repo.
     # --no-scripts skips the varbase drupal-libraries yarn sync (ace, dropzone, …),
     # which the events tests do not exercise; the scaffold plugin still runs on
@@ -122,19 +113,13 @@ validate:yaml-lint:
     - git config --global http.postBuffer 1048576000
     - git config --global http.lowSpeedLimit 1000
     - git config --global http.lowSpeedTime 300
-    - composer create-project drupal/varbase_project:11.0.x-dev "$SITE_DIR" --no-interaction --no-install --no-scripts
+    # Install FROM varbase_project's committed composer.lock (dev-pinned, patched
+    # via its committed patches.lock.json) — do NOT re-solve from scratch, which
+    # drifts to broken beta releases (varbase_starter 1.0.0-beta1 pins
+    # varbase_content_base ~1.0.0, which has no stable release). --no-scripts:
+    # the yarn libraries sync runs as its own CI step below.
+    - composer create-project drupal/varbase_project:11.0.x-dev "$SITE_DIR" --no-interaction --no-scripts --ignore-platform-req=ext-pgsql
     - cd "$SITE_DIR"
-    # Bridge cweagans/composer-patches' lock-less bootstrap window: with no
-    # patches.lock.json it resolves and downloads every dependency-declared
-    # patch at the first package event of the require below — before
-    # vardot/varbase-patches is installed, so its allow-list cannot filter
-    # yet, and one broken third-party patch (AI Context 1.0.0-beta3 declares
-    # a repository-relative path) aborts the whole build. With a lock file
-    # present it is loaded instead, and Varbase Patches rewrites it through
-    # the allow-list as soon as it lands. No-op once the Varbase Project
-    # template ships a committed patches.lock.json.
-    # See https://github.com/Vardot/varbase-patches/issues/540
-    - 'if [ ! -f patches.lock.json ]; then echo "{\"patches\": {}}" > patches.lock.json; fi'
     - composer config allow-plugins true -n
     - composer config minimum-stability dev
     - composer config repositories.events_base path "$CI_PROJECT_DIR"
@@ -143,14 +128,31 @@ validate:yaml-lint:
     # not fail the build.
     - |
       for i in 1 2 3 4 5; do
-        composer require "drupal/varbase_events_base:@dev" drush/drush:^13 -W --no-interaction && break
+        composer require "drupal/varbase_events_base:@dev" drush/drush:^13 -W --no-interaction --ignore-platform-req=ext-pgsql && break
         echo "composer require attempt $i failed — retrying in 15s"; sleep 15
       done
     - |
       for i in 1 2 3 4 5; do
-        composer install --no-interaction && break
+        composer install --no-interaction --ignore-platform-req=ext-pgsql && break
         echo "composer install attempt $i failed — retrying in 15s"; sleep 15
       done
+    # Apply the Drupal core #2741429 patch directly (EntityDisplayBase: guard a
+    # NULL $mode_entity in calculateDependencies). A lock-less create-project +
+    # targeted require extracts drupal/core before vardot/varbase-patches is
+    # active, so core ships unpatched and the Events recipe's layout_builder view
+    # display fatals during site:install with
+    # "Call to a member function getConfigDependencyName() on null".
+    # Applied straight into web/core so it does not depend on Composer re-running
+    # the patcher (which needs the plugin active at core install time).
+    - |
+      curl -fsSL -o /tmp/2741429.patch "https://raw.githubusercontent.com/Vardot/drupal-core-patches/refs/heads/patches/drupal-core--2026-07-02--2741429--entitydisplaybase-null-mode-entity.patch"
+      # Skip cleanly if it is already applied (forward-only), fail loudly otherwise.
+      if patch -p1 -d "$WEB_ROOT" --forward --dry-run < /tmp/2741429.patch; then
+        patch -p1 -d "$WEB_ROOT" --forward < /tmp/2741429.patch
+      else
+        echo "core #2741429 already applied or not applicable; continuing"
+      fi
+      grep -q "issues/2741429" "$WEB_ROOT/core/lib/Drupal/Core/Entity/EntityDisplayBase.php" || { echo "ERROR: core #2741429 patch not present after apply"; exit 1; }
     # Populate web/libraries (ckeditor5 media-embed, dropzone, …) via the
     # varbase_project `postinstall` sync. Without it CKEditor 5 fails to
     # initialise (missing media-embed plugin) and the media library breaks

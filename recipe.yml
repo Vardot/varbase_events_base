@@ -124,7 +124,7 @@ config:
                         plugin_id: default
                         advanced:
                           sort_options: false
-                          placeholder_text: Search by...
+                          placeholder_text: Enter keyword...
                           rewrite:
                             filter_rewrite_values: ''
                             filter_rewrite_values_key: false
@@ -261,7 +261,7 @@ config:
                   exposed: true
                   expose:
                     operator_id: search_title_op
-                    label: Search by
+                    label: Search by keyword
                     description: ''
                     use_operator: false
                     operator: search_title_op
@@ -556,7 +556,7 @@ config:
                         plugin_id: default
                         advanced:
                           sort_options: false
-                          placeholder_text: Search by...
+                          placeholder_text: Enter keyword...
                           rewrite:
                             filter_rewrite_values: ''
                             filter_rewrite_values_key: false
@@ -669,7 +669,7 @@ config:
                   exposed: true
                   expose:
                     operator_id: search_title_op
-                    label: Search by
+                    label: Search by keyword
                     description: ''
                     use_operator: false
                     operator: search_title_op

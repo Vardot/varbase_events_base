@@ -12,7 +12,7 @@ Feature: Events Base - Events listing filters
     Given I am an anonymous user
      When I go to "/events"
       And wait
-      And I fill in "Search by" with "Varbase Example Event"
+      And I fill in "Search by keyword" with "Varbase Example Event"
       And I press "Apply Filter"
       And wait
      Then the events result summary should show a total of 15
@@ -25,7 +25,7 @@ Feature: Events Base - Events listing filters
     Given I am an anonymous user
      When I go to "/events"
       And wait
-      And I fill in "Search by" with "Varbase Example Event"
+      And I fill in "Search by keyword" with "Varbase Example Event"
       And I choose "Workshop" in the events Type filter
       And I press "Apply Filter"
       And wait
