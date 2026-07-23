@@ -1167,6 +1167,8 @@ config:
           menu_name: main
           parent: ''
           context: '0'
+      setViewsComponentStyleTheme:
+        theme: default
     core.entity_form_display.node.event.default:
       simpleConfigUpdate:
         content:
