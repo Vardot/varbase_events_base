@@ -1,4 +1,8 @@
+[![Varbase](https://raw.githubusercontent.com/Vardot/varbase/11.0.x/images/varbase-logo.png)](https://www.drupal.org/project/varbase)
+
 # Varbase Events Base
+[![pipeline status](https://git.drupalcode.org/project/varbase_events_base/badges/1.0.x/pipeline.svg)](https://git.drupalcode.org/project/varbase_events_base/-/pipelines)
+[![Varbase Events Base](https://img.shields.io/badge/Varbase%20Events%20Base-1.0.0--alpha1-0d6efc?labelColor=001d38&style=flat-square)](https://git.drupalcode.org/project/varbase_events_base/-/pipelines?ref=1.0.0-alpha1)
 
 An event content type and an events listing for [Varbase](https://www.drupal.org/project/varbase) 11,
 built on the [Events](https://www.drupal.org/project/events) recipe and wired up the way Varbase
@@ -26,7 +30,7 @@ actions, the same way it already repoints the Blog view.
 ## Install
 
 ```bash
-composer require drupal/varbase_events_base
+composer require drupal/varbase_events_base:~1.0.0
 drush recipe recipes/varbase_events_base
 ```
 
