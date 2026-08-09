@@ -25,5 +25,5 @@
     "drupal/varbase_seo_base": "~1.0.0",
     "drupal/varbase_workflow_base": "~1.0.0"
   },
-  "version": "1.0.0-alpha1"
+  "version": "1.0.x-dev"
 }
