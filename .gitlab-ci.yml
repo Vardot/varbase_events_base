@@ -6,7 +6,7 @@
 # lint). The test stage assembles a Varbase site that applies this recipe
 # through a Site-template recipe (Varbase Starter + Varbase Events Base), serves
 # it with the PHP built-in server, seeds the test users and a small event
-# fixture, and runs the webship-js (Playwright + Cucumber-js) suite against it.
+# fixture, and runs the varbase-e2e (Playwright + Cucumber-js) suite against it.
 ################################################################################
 
 stages:
@@ -58,7 +58,7 @@ validate:yaml-lint:
       sys.exit(1 if bad else 0)
       PY
 
-# = test = webship-js functional tests against a freshly built Varbase + Events
+# = test = varbase-e2e functional tests against a freshly built Varbase + Events
 #          Base site. One self-contained job (build -> serve -> seed -> test).
 "🧪 Automated Functional Testing":
   stage: test

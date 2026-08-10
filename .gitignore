@@ -1,4 +1,4 @@
-# Node tooling + webship-js install (installed on demand, not committed).
+# Node tooling + varbase-e2e install (installed on demand, not committed).
 /node_modules/
 /package-lock.json
 /yarn.lock
@@ -6,7 +6,7 @@
 /.yarnrc.yml
 /.pnp.*
 
-# webship-js / Playwright run artifacts.
+# varbase-e2e / Playwright run artifacts.
 /tests/reports/
 /tests/screenshots/
 /tests/videos/

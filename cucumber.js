@@ -1,7 +1,7 @@
 // cucumber-js configuration for the Varbase Events Base functional testing suite.
 //
 // Drives the events recipe through the browser (Playwright + Cucumber-js via
-// webship-js >= 2.0.4). Feature files live flat in tests/features/ — one recipe,
+// varbase-e2e >= 2.0.4). Feature files live flat in tests/features/ — one recipe,
 // no per-feature subfolders.
 //   yarn test                # all features (tests/features/*.feature)
 //   yarn test:chromium       # force chromium
@@ -10,7 +10,7 @@
 //
 // Point the suite at a running site with LAUNCH_URL (falls back to
 // DDEV_PRIMARY_URL). Reports land in tests/reports/. Disable the auto HTML hook
-// with WEBSHIP_REPORT_DISABLE=1 and run `yarn generate-reports` in CI instead.
+// with VARBASE_E2E_REPORT_DISABLE=1 and run `yarn generate-reports` in CI instead.
 
 module.exports = {
   default: {
@@ -26,7 +26,7 @@ module.exports = {
     // and `.ts` step files with no build step.
     requireModule: ['tsx/cjs'],
     require: [
-      'node_modules/webship-js/tests/step-definitions/**/*.js', // Webship-js core step definitions.
+      'node_modules/@vardot/varbase-e2e/tests/step-definitions/**/*.js', // Varbase E2E core step definitions.
       'tests/step-definitions/**/*.js',                         // Events Base custom step definitions.
     ],
     // FEATURES lets you run a single feature file (e.g.
@@ -122,8 +122,8 @@ module.exports = {
         infoTypes: '',
       },
       video: {
-        // 'off' | 'on' | 'on-failure' | 'tag'. Override per run with WEBSHIP_VIDEO.
-        mode: process.env.WEBSHIP_VIDEO || 'on-failure',
+        // 'off' | 'on' | 'on-failure' | 'tag'. Override per run with VARBASE_E2E_VIDEO.
+        mode: process.env.VARBASE_E2E_VIDEO || 'on-failure',
         dir: './tests/videos',
         size: { width: 1920, height: 1080 },
         filenamePattern: '{datetime}.{feature_file}.{scenario}.{status}.{ext}',
@@ -131,8 +131,8 @@ module.exports = {
       javascript: {
         // Report collected JavaScript console/page errors at scenario end.
         // 'warn' logs but the scenario still passes; do NOT tag scenarios
-        // @javascript (that forces 'fail' mode in webship-js).
-        mode: process.env.WEBSHIP_JS_ERROR_MODE || 'warn',
+        // @javascript (that forces 'fail' mode in varbase-e2e).
+        mode: process.env.VARBASE_E2E_JS_ERROR_MODE || 'warn',
         levels: ['error'],
         ignore: '',
         beforeScenario: false,

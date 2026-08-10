@@ -3,12 +3,12 @@
 const { When, Then } = require('@cucumber/cucumber');
 const assert = require('assert');
 
-const { smartSettle, friendly } = require('webship-js/tests/step-definitions/webship');
+const { smartSettle, friendly } = require('@vardot/varbase-e2e/tests/step-definitions/varbase-e2e');
 
 // -----------------------------------------------------------------------------
 // Custom steps for the Varbase Events Base recipe.
 //
-// The Event content type ships widgets the generic webship-js steps cannot
+// The Event content type ships widgets the generic varbase-e2e steps cannot
 // drive on their own: the "When" smartdate (date + time inputs), the Body
 // CKEditor 5 editor (its content lives in the editor model, not the textarea),
 // and the "Featured image" media_library widget (an AJAX modal media picker).

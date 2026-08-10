@@ -1,7 +1,7 @@
 # Varbase Events Base — automated functional tests
 
 Behaviour-Driven functional tests for the **Varbase Events Base** recipe, written
-with [webship-js](https://webship.co/docs/webship-js/2.0.x) (Playwright +
+with [varbase-e2e](https://varbase-e2e.co/docs/varbase-e2e/2.0.x) (Playwright +
 Cucumber-js). They drive a running Varbase site through a real browser and assert
 the behaviour the recipe actually provides — the Event content type and its
 fields, authoring, the events listing with its filters and pager, the Related
@@ -54,7 +54,7 @@ One folder = one parallel CI job (matrix over `SUITE`).
 ## Running
 
 ```bash
-npm install                 # webship-js brings Cucumber-js, Playwright, tsx
+npm install                 # varbase-e2e brings Cucumber-js, Playwright, tsx
 npx playwright install chromium
 
 # Point at your running site and run the whole suite:
