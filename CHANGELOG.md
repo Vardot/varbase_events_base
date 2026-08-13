@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-alpha2] - 2026-08-13
+### Added
+- An **Upcoming events** block display on the Events view: the three nearest upcoming events in the
+  `text_card_medium` view mode, no pager, in a single column. The view mode is already bound to
+  `field_when`, so each card carries its date. Component ids are the base theme's
+  (`vartheme_bs5:`), so any consumer can place the block as shipped, and a site template with its
+  own theme repoints them with `setViewsComponentStyleTheme`. A site template no longer has to
+  define this display itself.
+### Changed
+- Switch the Varbase functional testing suite to Varbase E2E.
+- Update the version badge to `1.0.0-alpha2` in `README.md`.
+
 ## [1.0.0-alpha1] - 2026-08-09
 ### Added
 - Initial release of the Varbase Events Base recipe: an Event content type with a smart date (When),
@@ -19,5 +31,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   constraints (`~4.0.0` / `~1.0.0`).
 - Update the version badge to `1.0.0-alpha1` in `README.md`.
 
-[Unreleased]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.0-alpha1...1.0.x
+[Unreleased]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.0-alpha2...1.0.x
+[1.0.0-alpha2]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.0-alpha1...1.0.0-alpha2
 [1.0.0-alpha1]: https://git.drupalcode.org/project/varbase_events_base/-/tags/1.0.0-alpha1
