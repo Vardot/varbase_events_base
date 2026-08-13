@@ -16,6 +16,6 @@
     "generate-reports": "node ./node_modules/@vardot/varbase-e2e/bin/generate-reports.js"
   },
   "devDependencies": {
-    "@vardot/varbase-e2e": "^2.0.1"
+    "@vardot/varbase-e2e": "^2"
   }
 }
