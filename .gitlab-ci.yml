@@ -105,9 +105,10 @@ validate:yaml-lint:
     - curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
     - apt-get install -y nodejs
     # Assemble a Varbase project and require the recipe under test from a path repo.
-    # --no-scripts skips the varbase drupal-libraries yarn sync (ace, dropzone, …),
-    # which the events tests do not exercise; the scaffold plugin still runs on
-    # composer install below.
+    # --no-scripts skips the project's composer scripts, which the events tests do
+    # not exercise; the scaffold plugin still runs on composer install below, and
+    # so do the installer paths that place the front-end libraries - those are
+    # plugin-driven, not scripts, so web/libraries is populated either way.
     # Make git clones resilient to a flaky runner network (RPC/stream resets).
     - git config --global http.version HTTP/1.1
     - git config --global http.postBuffer 1048576000
