@@ -2,7 +2,7 @@
 
 # Varbase Events Base
 [![pipeline status](https://git.drupalcode.org/project/varbase_events_base/badges/1.0.x/pipeline.svg)](https://git.drupalcode.org/project/varbase_events_base/-/pipelines)
-[![Varbase Events Base](https://img.shields.io/badge/Varbase%20Events%20Base-1.0.0--beta1-0d6efc?labelColor=001d38&style=flat-square)](https://git.drupalcode.org/project/varbase_events_base/-/pipelines?ref=1.0.0-beta1)
+[![Varbase Events Base](https://img.shields.io/badge/Varbase%20Events%20Base-1.0.0-0d6efc?labelColor=001d38&style=flat-square)](https://git.drupalcode.org/project/varbase_events_base/-/pipelines?ref=1.0.0)
 
 An event content type and an events listing for [Varbase](https://www.drupal.org/project/varbase) 11,
 built on the [Events](https://www.drupal.org/project/events) recipe and wired up the way Varbase

@@ -19,11 +19,11 @@
     "drupal/selective_better_exposed_filters": "~3",
     "drupal/webshare": "~2.0.0",
     "drupal/events": "~2.0",
-    "drupal/varbase_components": "4.0.x-dev",
-    "drupal/varbase_content_base": "1.0.x-dev",
-    "drupal/varbase_media_base": "1.0.x-dev",
-    "drupal/varbase_seo_base": "1.0.x-dev",
-    "drupal/varbase_workflow_base": "1.0.x-dev"
+    "drupal/varbase_components": "~4.0.0",
+    "drupal/varbase_content_base": "~1.0.0",
+    "drupal/varbase_media_base": "~1.0.0",
+    "drupal/varbase_seo_base": "~1.0.0",
+    "drupal/varbase_workflow_base": "~1.0.0"
   },
-  "version": "1.0.x-dev"
+  "version": "1.0.0"
 }
