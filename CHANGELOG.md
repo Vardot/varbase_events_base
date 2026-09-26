@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-09-26
+### Changed
+- Update `@vardot/varbase-e2e` to 2.0.7, and keep the functional testing suite green by building CI on Twig 3.29 until a Twig release compatible with Drupal core is out
+  ([#3625764](https://www.drupal.org/i/3625764)).
+- Pin the `drupal/varbase_components` dependency to `~4.0.0` for the release.
+- Pin the `drupal/varbase_content_base` dependency to `~1.0.0` for the release.
+- Pin the `drupal/varbase_media_base` dependency to `~1.0.0` for the release.
+- Pin the `drupal/varbase_seo_base` dependency to `~1.0.0` for the release.
+- Pin the `drupal/varbase_workflow_base` dependency to `~1.0.0` for the release.
+- Update the version badge to `1.0.2` in `README.md`.
+
 ## [1.0.1] - 2026-09-08
 ### Changed
 - Update `@vardot/varbase-e2e` to `^2.0.4`
@@ -62,7 +73,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   constraints (`~4.0.0` / `~1.0.0`).
 - Update the version badge to `1.0.0-alpha1` in `README.md`.
 
-[Unreleased]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.1...1.0.x
+[Unreleased]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.2...1.0.x
+[1.0.2]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.1...1.0.2
 [1.0.1]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.0...1.0.1
 [1.0.0]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.0-beta1...1.0.0
 [1.0.0-beta1]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.0-alpha2...1.0.0-beta1
