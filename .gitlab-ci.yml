@@ -129,7 +129,9 @@ validate:yaml-lint:
     # not fail the build.
     - |
       for i in 1 2 3 4 5; do
-        composer require "drupal/varbase_events_base:@dev" drush/drush:^13 -W --no-interaction --ignore-platform-req=ext-pgsql && break
+        # Temporary (#3625764): keep Twig below 3.30 until a Twig release compatible
+        # with Drupal core is out; 3.30.0 breaks every page render.
+        composer require "drupal/varbase_events_base:@dev" drush/drush:^13 "twig/twig:<3.30" -W --no-interaction --ignore-platform-req=ext-pgsql && break
         echo "composer require attempt $i failed — retrying in 15s"; sleep 15
       done
     - |
