@@ -106,7 +106,7 @@ validate:yaml-lint:
     - apt-get install -y nodejs
     # Assemble a Varbase project and require the recipe under test from a path repo.
     # --no-scripts skips the project's composer scripts, which the events tests do
-    # not exercise; the scaffold plugin still runs on composer install below, and
+    # not exercise; the scaffold plugin still runs on composer require below, and
     # so do the installer paths that place the front-end libraries - those are
     # plugin-driven, not scripts, so web/libraries is populated either way.
     # Make git clones resilient to a flaky runner network (RPC/stream resets).
@@ -124,19 +124,15 @@ validate:yaml-lint:
     - composer config allow-plugins true -n
     - composer config minimum-stability dev
     - composer config repositories.events_base path "$CI_PROJECT_DIR"
-    # Retry the require/install — git.drupalcode.org clones intermittently reset
-    # (RPC failed / stream not closed) on a runner, and a single hiccup should
-    # not fail the build.
+    # Retry the require, as git.drupalcode.org clones reset now and then; five
+    # failures fail the job. No separate install: require already installs.
     - |
+      required=0
       for i in 1 2 3 4 5; do
-        composer require "drupal/varbase_events_base:@dev" drush/drush:^13 -W --no-interaction --ignore-platform-req=ext-pgsql && break
-        echo "composer require attempt $i failed — retrying in 15s"; sleep 15
+        composer require "drupal/varbase_events_base:@dev" drush/drush:^13 -W --no-interaction --ignore-platform-req=ext-pgsql && { required=1; break; }
+        echo "composer require attempt $i failed, retrying in 15s"; sleep 15
       done
-    - |
-      for i in 1 2 3 4 5; do
-        composer install --no-interaction --ignore-platform-req=ext-pgsql && break
-        echo "composer install attempt $i failed — retrying in 15s"; sleep 15
-      done
+      [ "$required" = "1" ] || { echo "composer require failed after 5 attempts"; exit 1; }
     # Apply the Drupal core #2741429 patch directly (EntityDisplayBase: guard a
     # NULL $mode_entity in calculateDependencies). A lock-less create-project +
     # targeted require extracts drupal/core before vardot/varbase-patches is
