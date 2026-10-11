@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-10-11
+### Changed
+- Remove the temporary CI-only `twig/twig:<3.30` pin. Drupal core 11.4.8, 11.3.18 and 10.6.18 fixed the Twig 3.30 render error, so CI builds on the current Twig again
+  ([#3629818](https://www.drupal.org/i/3629818)).
+- Fix `yarn install` in CI now that Varbase Project 11.0.x-dev ships no `yarn.lock`: CI creates an empty one first, so Yarn does not take this recipe's `package.json` as the project root
+  ([#3630029](https://www.drupal.org/i/3630029)).
+- Pin the `drupal/varbase_components` dependency to `~4.0.0` for the release.
+- Pin the `drupal/varbase_content_base` dependency to `~1.0.0` for the release.
+- Pin the `drupal/varbase_media_base` dependency to `~1.0.0` for the release.
+- Pin the `drupal/varbase_seo_base` dependency to `~1.0.0` for the release.
+- Pin the `drupal/varbase_workflow_base` dependency to `~1.0.0` for the release.
+- Update the version badge to `1.0.3` in `README.md`.
+
 ## [1.0.2] - 2026-09-26
 ### Changed
 - Update `@vardot/varbase-e2e` to 2.0.7, and keep the functional testing suite green by building CI on Twig 3.29 until a Twig release compatible with Drupal core is out
@@ -73,7 +86,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   constraints (`~4.0.0` / `~1.0.0`).
 - Update the version badge to `1.0.0-alpha1` in `README.md`.
 
-[Unreleased]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.2...1.0.x
+[Unreleased]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.3...1.0.x
+[1.0.3]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.2...1.0.3
 [1.0.2]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.1...1.0.2
 [1.0.1]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.0...1.0.1
 [1.0.0]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.0-beta1...1.0.0
