@@ -296,6 +296,21 @@ When(/^(?:I |we )*choose "([^"]*)" in the events Type filter$/, async function (
 });
 
 /**
+ * Type a keyword into the events listing's own keyword filter.
+ *
+ * The site-wide search field carries the same "Search by keyword" label.
+ *
+ * Example #1: When I fill in the events keyword filter with "Varbase Example Event"
+ * Example #2: And I fill in the events keyword filter with "Workshop"
+ * Example #3: When we fill in the events keyword filter with "Varbase Example Event"
+ * Example #4: And we fill in the events keyword filter with "Conference"
+ * Example #5: Given I fill in the events keyword filter with "Varbase Example Event"
+ */
+When(/^(?:I |we )*fill in the events keyword filter with "([^"]*)"$/, async function (value) {
+  await this.page.locator('input[name="search"]').first().fill(value);
+});
+
+/**
  * Assert the events listing result summary reports a given "of N" total.
  *
  * Example #1: Then the events result summary should show a total of 15
