@@ -25,5 +25,8 @@
     "drupal/varbase_seo_base": "1.0.x-dev",
     "drupal/varbase_workflow_base": "1.0.x-dev"
   },
+  "conflict": {
+    "drupal/events": "2.0.1"
+  },
   "version": "1.0.x-dev"
 }
