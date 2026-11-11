@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.6] - 2026-11-11
+### Changed
+- Update Node.js to >= 24.0 ([#3635611](https://www.drupal.org/i/3635611)).
+- Pin the `drupal/varbase_*` dependencies to the released `~1.0.0` and `~4.0.0` lines for the release.
+- Update the version badge to `1.0.6` in `README.md`.
+
+### Fixed
+- Conflict with Events 2.0.1, which fails recipe validation in the Drupal CMS installer ([#3636258](https://www.drupal.org/i/3636258)).
+
 ## [1.0.5] - 2026-10-29
 ### Changed
 - Disable Drupal CMS telemetry in CI, and make the events listing tests fill the listing's own keyword filter, since the site-wide search field carries the same label ([#3633838](https://www.drupal.org/i/3633838)).
@@ -103,7 +112,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   constraints (`~4.0.0` / `~1.0.0`).
 - Update the version badge to `1.0.0-alpha1` in `README.md`.
 
-[Unreleased]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.5...1.0.x
+[Unreleased]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.6...1.0.x
+[1.0.6]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.5...1.0.6
 [1.0.5]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.4...1.0.5
 [1.0.4]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.3...1.0.4
 [1.0.3]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.2...1.0.3
