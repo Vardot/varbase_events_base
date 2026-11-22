@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.0.7] - 2026-11-22
+### Changed
+- Pin the `drupal/varbase_*` dependencies to the released `~1.0.0` and `~4.0.0` lines for the release.
+- Update the version badge to `1.0.7` in `README.md`.
+
 ### Fixed
 - Stop the Upcoming events display from publishing an exposed filter block. It has no exposed
   filters, so the block was empty, and Drupal Canvas generated a component for it that broke, with
@@ -117,7 +123,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   constraints (`~4.0.0` / `~1.0.0`).
 - Update the version badge to `1.0.0-alpha1` in `README.md`.
 
-[Unreleased]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.6...1.0.x
+[Unreleased]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.7...1.0.x
+[1.0.7]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.6...1.0.7
 [1.0.6]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.5...1.0.6
 [1.0.5]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.4...1.0.5
 [1.0.4]: https://git.drupalcode.org/project/varbase_events_base/-/compare/1.0.3...1.0.4
