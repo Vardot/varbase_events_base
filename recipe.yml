@@ -312,7 +312,6 @@ config:
               link_display: custom_url
               link_url: events
               header: {  }
-              exposed_block: true
               display_extenders: {  }
               block_description: 'Upcoming events'
             cache_metadata:

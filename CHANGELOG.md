@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Stop the Upcoming events display from publishing an exposed filter block. It has no exposed
+  filters, so the block was empty, and Drupal Canvas generated a component for it that broke, with
+  a "block plugin was not found" warning on every cron run, once a site template changed the
+  display ([#3639153](https://git.drupalcode.org/project/varbase_events_base/-/work_items/3639153)).
 
 ## [1.0.6] - 2026-11-11
 ### Changed
